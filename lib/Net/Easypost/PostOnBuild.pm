@@ -28,19 +28,19 @@ sub serialize {
 
 __END__
 
-=pod 
+=pod
 
-=head1 NAME 
+=head1 NAME
 
 =head1 SYNOPSIS
 
 =head1 METHODS
 
-=over 4 
+=over 4
 
-=item BUILD 
+=item BUILD
 
-After the Net::Easypost::Resource has been constructure, sends a POST to the Easypost 
+After the Net::Easypost::Resource has been constructure, sends a POST to the Easypost
 service for the type of Net::Easypost::Resource being constructed to get a valid ID
 
 =item serialize
@@ -48,6 +48,6 @@ service for the type of Net::Easypost::Resource being constructed to get a valid
 Format the defined attributes for a call to the Easypost service.
 Takes an arrayref of attributes to serialize. Defaults to the C<fieldnames> attribute.
 
-=back 
+=back
 
-=cut 
+=cut

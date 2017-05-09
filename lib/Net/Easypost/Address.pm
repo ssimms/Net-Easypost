@@ -20,7 +20,7 @@ has 'country' => (
     default => 'US',
 );
 
-sub _build_fieldnames { 
+sub _build_fieldnames {
     return [qw/name street1 street2 city state zip phone country/];
 }
 
@@ -60,14 +60,10 @@ sub merge {
 
 sub verify {
     my ($self) = @_;
-    
-    if ($self->country ne 'US') {
-        carp "Verifying addresses outside US is not supported";
-        return $self;
-    }
+
     my $verify_response =
-       $self->requester->get( 
-          join '/', $self->operation, $self->id, 'verify' 
+       $self->requester->get(
+          join '/', $self->operation, $self->id, 'verify'
        );
 
     croak 'Unable to verify address, failed with message: '
@@ -85,7 +81,7 @@ sub verify {
 
 __END__
 
-=pod 
+=pod
 
 =head1 NAME
 

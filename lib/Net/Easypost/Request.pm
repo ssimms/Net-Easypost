@@ -4,7 +4,7 @@ use Moo;
 
 use Carp qw(croak);
 use HTTP::Tiny;
-use JSON;
+use JSON::MaybeXS qw(decode_json);
 
 has 'user_agent' => (
     is      => 'ro',
@@ -25,12 +25,12 @@ sub post {
 
     unless ( $http_response->{success} ) {
         my ($err, $code) = map { $http_response->{$_} } qw(reason response);
-        croak $code 
-           ? "FATAL: " . $self->endpoint . $operation . " returned $code: '$err'" 
+        croak $code
+           ? "FATAL: " . $self->endpoint . $operation . " returned $code: '$err'"
            : "FATAL: " . $self->endpoint . $operation . " returned '$err'";
     }
 
-    return JSON::from_json $http_response->{content};
+    return decode_json $http_response->{content};
 }
 
 sub get {
@@ -41,17 +41,17 @@ sub get {
 
     my $http_response = $self->user_agent->get( $endpoint );
     return lc $http_response->{headers}->{'content-type'} =~ m|^\Qapplication/json\E|
-       ? JSON::from_json $http_response->{content}
+       ? decode_json $http_response->{content}
        : $http_response->{content};
 }
 
 sub _build_url {
     my ($self, $operation) = @_;
 
-    return 'https://' . $ENV{EASYPOST_API_KEY} . ':@' . $self->endpoint . $operation 
+    return 'https://' . $ENV{EASYPOST_API_KEY} . ':@' . $self->endpoint . $operation
         if exists $ENV{EASYPOST_API_KEY};
- 
-    croak 'Cannot find API key in access_code attribute of Net::Easypost' 
+
+    croak 'Cannot find API key in access_code attribute of Net::Easypost'
         . ' or in an environment variable name EASYPOST_API_KEY';
 }
 
@@ -59,9 +59,9 @@ sub _build_url {
 
 __END__
 
-=pod 
+=pod
 
-=head1 NAME 
+=head1 NAME
 
 Net::Easypost::Request
 
@@ -69,9 +69,9 @@ Net::Easypost::Request
 
 Net::Easypost::Request->new
 
-=head1 ATTRIBUTES 
+=head1 ATTRIBUTES
 
-=over 4 
+=over 4
 
 =item user_agent
 
@@ -83,9 +83,9 @@ The Easypost service endpoint. Defaults to 'https://api.easypost.com/v2'
 
 =back
 
-=head1 METHODS 
+=head1 METHODS
 
-=over 4 
+=over 4
 
 =item _build_url
 
@@ -106,4 +106,4 @@ object.
 
 =back
 
-=cut 
+=cut
