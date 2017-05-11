@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/mcmillhj/Net-Easypost.svg?branch=master)](https://travis-ci.org/mcmillhj/Net-Easypost)
 [![Coverage Status](https://coveralls.io/repos/mcmillhj/Net-Easypost/badge.svg?branch=master)](https://coveralls.io/r/mcmillhj/Net-Easypost?branch=master)
 [![Kwalitee status](http://cpants.cpanauthors.org/dist/Net-Easypost.png)](http://cpants.charsbar.org/dist/overview/Net-Easypost)
+[![Cpan license](https://img.shields.io/cpan/l/Net-Easypost.svg)](https://metacpan.org/release/Net-Easypost)
+[![Cpan version](https://img.shields.io/cpan/v/Net-Easypost.svg)](https://metacpan.org/release/Net-Easypost)
 
 # NAME
 
