@@ -45,10 +45,30 @@ use namespace::autoclean;
       weight => 10.0,
    );
 
+   my $customs_info = Net::Easypost::CustomsInfo->new(
+       customs_signer   => 'Steve Brule',
+       contents_type    => 'merchandise',
+       restriction_type => 'none',
+       customs_certify  => 1,
+       eel_ppc          => 'NOEEI 30.37(a)',
+       customs_items => [
+	   Net::Easypost::CustomsItem->new(
+	       code             => '111111',
+	       description	=> 'T-Shirt',
+	       quantity		=> 1,
+	       weight		=> 5,
+	       value		=> 10,
+	       hs_tariff_number => '123456',
+	       origin_country	=> 'US',
+	   )
+       ]
+   );
+
    my $shipment = Net::Easypost::Shipment->new(
-      to_address   => $to,
-      from_address => $from,
-      parcel       => $parcel,
+       to_address   => $to,
+       from_address => $from,
+       parcel       => $parcel,
+       customs_info => $customs_info,
    );
 
    my $ezpost = Net::Easypost->new;
