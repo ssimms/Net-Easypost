@@ -1,9 +1,6 @@
 package Net::Easypost;
 
-use Data::Dumper;
 use Carp qw(croak);
-use Hash::Merge::Simple qw(merge);
-use Moo;
 
 use Net::Easypost::Address;
 use Net::Easypost::Label;
@@ -11,6 +8,9 @@ use Net::Easypost::Parcel;
 use Net::Easypost::Rate;
 use Net::Easypost::Request;
 use Net::Easypost::Shipment;
+
+use Moo;
+use namespace::autoclean;
 
 # ABSTRACT: Perl client for the Easypost web service
 
@@ -70,7 +70,7 @@ recommend using L<Try::Tiny> in your implementation.
 
 API key:
 
-You must have your API key stored in an environment variable named 
+You must have your API key stored in an environment variable named
 EASYPOST_API_KEY
 
 =cut
@@ -216,8 +216,8 @@ sub get_label {
     my ($self, $label_filename) = @_;
 
     my $resp = $self->requester->post(
-        '/postage/get', 
-        { label_file_name => $label_filename } 
+        '/postage/get',
+        { label_file_name => $label_filename }
     );
 
     return Net::Easypost::Label->new(
@@ -239,8 +239,8 @@ input parameters.
 sub list_labels {
     my ($self) = @_;
 
-    my $resp = $self->requester->get( 
-        $self->requester->_build_url('/postage/list') 
+    my $resp = $self->requester->get(
+        $self->requester->_build_url('/postage/list')
     );
 
     return $resp->{postages};

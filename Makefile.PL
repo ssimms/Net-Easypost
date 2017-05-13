@@ -18,7 +18,6 @@ my %WriteMakefileArgs = (
   "NAME" => "Net::Easypost",
   "PREREQ_PM" => {
     "HTTP::Tiny" => "0.054",
-    "Hash::Merge::Simple" => "0.051",
     "IO::Socket::SSL" => "1.962",
     "JSON::MaybeXS" => "1.003009",
     "Mojolicious" => "4.66",
@@ -34,7 +33,6 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "HTTP::Tiny" => "0.054",
-  "Hash::Merge::Simple" => "0.051",
   "IO::Socket::SSL" => "1.962",
   "JSON::MaybeXS" => "1.003009",
   "Mojolicious" => "4.66",
