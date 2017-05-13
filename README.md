@@ -42,10 +42,30 @@ version 0.19
        weight => 10.0,
     );
 
+    my $customs_info = Net::Easypost::CustomsInfo->new(
+        customs_signer   => 'Steve Brule',
+        contents_type    => 'merchandise',
+        restriction_type => 'none',
+        customs_certify  => 1,
+        eel_ppc          => 'NOEEI 30.37(a)',
+        customs_items => [
+            Net::Easypost::CustomsItem->new(
+                code             => '111111',
+                description      => 'T-Shirt',
+                quantity         => 1,
+                weight           => 5,
+                value            => 10,
+                hs_tariff_number => '123456',
+                origin_country   => 'US',
+            )
+        ]
+    );
+
     my $shipment = Net::Easypost::Shipment->new(
-       to_address   => $to,
-       from_address => $from,
-       parcel       => $parcel,
+        to_address   => $to,
+        from_address => $from,
+        parcel       => $parcel,
+        customs_info => $customs_info,
     );
 
     my $ezpost = Net::Easypost->new;
@@ -135,14 +155,7 @@ input parameters.
 
 # SUPPORT
 
-Please report any bugs or feature requests to "bug-net-easypost at
-rt.cpan.org", or through the web interface at
-[http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Net-Easypost](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Net-Easypost).  I will
-be notified, and then you'll automatically be notified of progress on
-your bug as I make changes.
-
-Or, if you wish, you may report bugs/features on Github's Issue Tracker.
-[https://github.com/mrallen1/Net-Easypost/issues](https://github.com/mrallen1/Net-Easypost/issues)
+Please report any bugs or feature requests to [https://github.com/mcmillhj/Net-Easypost/issues](https://github.com/mcmillhj/Net-Easypost/issues)
 
 # SEE ALSO
 

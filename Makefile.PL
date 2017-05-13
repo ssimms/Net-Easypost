@@ -22,7 +22,8 @@ my %WriteMakefileArgs = (
     "JSON::MaybeXS" => "1.003009",
     "Mojolicious" => "4.66",
     "Moo" => "1.004002",
-    "Types::Standard" => "0.040"
+    "Types::Standard" => "0.040",
+    "namespace::autoclean" => "0.28"
   },
   "VERSION" => "0.19",
   "test" => {
@@ -37,7 +38,8 @@ my %FallbackPrereqs = (
   "JSON::MaybeXS" => "1.003009",
   "Mojolicious" => "4.66",
   "Moo" => "1.004002",
-  "Types::Standard" => "0.040"
+  "Types::Standard" => "0.040",
+  "namespace::autoclean" => "0.28"
 );
 
 
