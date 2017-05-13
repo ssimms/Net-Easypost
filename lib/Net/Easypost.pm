@@ -248,14 +248,7 @@ sub list_labels {
 
 =head1 SUPPORT
 
-Please report any bugs or feature requests to "bug-net-easypost at
-rt.cpan.org", or through the web interface at
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Net-Easypost>.  I will
-be notified, and then you'll automatically be notified of progress on
-your bug as I make changes.
-
-Or, if you wish, you may report bugs/features on Github's Issue Tracker.
-L<https://github.com/mrallen1/Net-Easypost/issues>
+Please report any bugs or feature requests to L<https://github.com/mcmillhj/Net-Easypost/issues>
 
 =head1 SEE ALSO
 
