@@ -1,6 +1,8 @@
 Change history for Net-Easypost
 
 {{$NEXT}}
+
+0.19        2017-05-13
             - Add support for CustomsInfo & CustomsItem object to support international shipping
             - Remove default Country of US
             - Updated Net::Easypost::Address to support all fields returned in the API
