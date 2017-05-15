@@ -19,7 +19,7 @@ has 'contents_type' => (
 
 has 'customs_certify' => (
     is  => 'rw',
-    isa => Bool,
+    isa => Bool|InstanceOf['JSON::PP::Boolean'],
     coerce => sub { $_[0] ? JSON->true : JSON->false }
 );
 

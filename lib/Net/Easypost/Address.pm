@@ -7,7 +7,7 @@ use overload
     '""'     => sub { $_[0]->as_string },
     '0+'     => sub { Scalar::Util::refaddr($_[0]) },
     fallback => 1;
-use Types::Standard qw(Bool Enum HashRef Str Undef);
+use Types::Standard qw(Bool Enum HashRef InstanceOf Str Undef);
 
 
 use Moo;
@@ -35,7 +35,7 @@ has [qw/street1
 
 has 'residential' => (
     is     => 'rw',
-    isa    => Bool,
+    isa    => Bool|InstanceOf['JSON::PP::Boolean'],
     coerce => sub { $_[0] ? JSON->true : JSON->false }
 );
 

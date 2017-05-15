@@ -1,6 +1,8 @@
 Change history for Net-Easypost
 
 {{$NEXT}}
+            - Add test dependency for Test::Exception
+            - Add JSON::PP::Boolean type to all boolean Moo attributes to avoid cpantesters failure
 
 0.19        2017-05-13
             - Add support for CustomsInfo & CustomsItem object to support international shipping
