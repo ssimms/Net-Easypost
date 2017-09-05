@@ -1,6 +1,7 @@
 Change history for Net-Easypost
 
 {{$NEXT}}
+            - Contribution from @fendent that fixes an issue when creating CustomsInfo objects
 
 0.20        2017-05-15
             - Add test dependency for Test::Exception
