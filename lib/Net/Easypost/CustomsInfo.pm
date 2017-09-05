@@ -79,7 +79,7 @@ sub serialize {
    if ($self->customs_items) {
        foreach my $i (0 .. $#{ $self->customs_items }) {
 	   my $item = $self->customs_items->[$i];
-	   $obj->{$self->role . "[" . $item->role . "][$i][id]"} = $item->id;
+	   $obj->{$self->role . "[customs_items][$i][id]"} = $item->id;
        }
    }
 
