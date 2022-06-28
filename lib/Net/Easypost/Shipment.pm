@@ -75,6 +75,9 @@ sub serialize {
 
    # want a hashref of e.g., shipment[to_address][id] => foo from all defined attributes
    return {
+       (defined $self->options
+        ? map { $self->role . "[options][$_]" => $self->options->{$_} } %{$self->options}
+        : ()),
        map { $self->role . "[$_][id]" => $self->$_->id }
        grep { defined $self->$_ }
           qw(to_address from_address parcel customs_info)
